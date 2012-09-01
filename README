@@ -1,0 +1,45 @@
+<==================================================================================>
+<        /\_/\                                                                     >
+<   _oo_|_0_0_|_oo_                  Rocket Cat                                    >
+<                                                                                  >
+<==================================================================================>
+
+Si vous lisez ceci, c'est probablement parce que vous vous intéressez à Rocket Cat,
+mon petit script PHP. À mi-chemin entre Shaarli et votre page Google+, ce script 
+vous permettra de prendre les liens et notes que vous postez sur Google+ pour les
+proposer à vos lecteurs sous la forme d'un flux RSS 2.0.
+
+=> PRÉ-REQUIS
+
+    Pour utiliser Rocket Cat, vous devez disposer de:
+        - Apache/Lighttpd/Nginx (ou tout autre serveur HTTP)
+        - PHP 5
+        - Une clé d'API Google+ (voir https://code.google.com/apis/console/)
+        - Cinq minutes
+
+
+=> INSTALLATION
+
+    L'installation s'effectue en trois petites étapes:
+        1) Modifiez le fichier « config.php ». Toutes les lignes ont été commentées
+        2) Uploadez le contenu du dossier « Rocket-Cat » sur votre serveur
+        3) Appliquez les bons droits au fichier « ca.che »: PHP doit pouvoir écrire
+           à l'intérieur
+
+    Et voilà, c'est (déjà) terminé!
+
+
+=> UTILISATION
+
+    Continuez d'utiliser Google+ comme avant. Seul les posts marqués comme « En mode
+    public » sont concernés. Les autres posts n'apparaitront pas dans votre flux.
+    Attention: il peut s'écouler jusqu'à une minute entre le moment où le bouton
+    « Partager » est pressé et le moment où le post apparaît sur le flux.
+
+
+=> SIGNALER UN BUG
+
+    Si le flux reste vide, ouvrez le fichier « index.php » puis commentez (ajoutez //
+    au début) la ligne « error_reporting(0); » pour permettre l'affichage des erreurs.
+    
+    Pour signaler un bug, rendez-vous sur https://github.com/quent1-fr/Rocket-Cat/issues
