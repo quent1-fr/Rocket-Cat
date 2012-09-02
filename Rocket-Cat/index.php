@@ -3,7 +3,12 @@
 	error_reporting(0);
 	
 	if(time() - fileatime('ca.che') > $config['max_age']){
-		$posts_raw = file_get_contents('https://www.googleapis.com/plus/v1/people/' . $config['gplus_id'] . '/activities/public?key=' . $config['api_key'] . '&maxResults=' . $config['max_post']);
+		$api = curl_init();
+		curl_setopt($api, CURLOPT_URL, 'https://www.googleapis.com/plus/v1/people/' . $config['gplus_id'] . '/activities/public?key=' . $config['api_key'] . '&maxResults=' . $config['max_post']);
+		curl_setopt($api, CURLOPT_TIMEOUT, 3);
+		curl_setopt($api, CURLOPT_RETURNTRANSFER, true);
+		
+		$posts_raw = curl_exec($api);
 		
 		if($posts_raw === false) $result = file_get_contents('ca.che');
 		else{

@@ -13,7 +13,7 @@ proposer à vos lecteurs sous la forme d'un flux RSS 2.0.
 
     Pour utiliser Rocket Cat, vous devez disposer de:
         - Apache/Lighttpd/Nginx (ou tout autre serveur HTTP)
-        - PHP 5
+        - PHP 5 avec cURL
         - Une clé d'API Google+ (voir https://code.google.com/apis/console/)
         - Cinq minutes
 

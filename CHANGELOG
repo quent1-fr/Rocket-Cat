@@ -1,2 +1,4 @@
+=> Version 0.1.1 (02 septembre 2012)
+    -> La requête s'effectue maintenant via cURL (bug #1)
 => Version 0.1 (01 septembre 2012)
     -> Première publication (aucune nouveauté)
