@@ -1,4 +1,9 @@
 <?php
+	if(file_exists('install.php')){
+		header('Location: install.php');
+		exit();
+	}
+	
 	include 'config.php';
 	error_reporting(0);
 	
@@ -21,6 +26,16 @@
 					$title = $item->object->attachments[0]->displayName;
 					$url = $item->object->attachments[0]->url;
 				}
+				elseif(isset($item->object->attachments[0]) && $item->object->attachments[0]->objectType == 'photo'){
+					if(isset($item->object->attachments[0]->displayName)) $title = $item->object->attachments[0]->displayName;
+					else $title = 'Image';
+					$url = $item->object->attachments[0]->fullImage->url;
+				}
+				elseif(isset($item->object->attachments[0]) && $item->object->attachments[0]->objectType == 'video'){
+					if(isset($item->object->attachments[0]->displayName)) $title = $item->object->attachments[0]->displayName;
+					else $title = 'Vidéo';
+					$url = $item->object->attachments[0]->url;
+				}
 				else{
 					$title = 'Note';
 					$url = $item->object->url;
@@ -28,7 +43,7 @@
 				$content = $item->object->content;
 				$date = date('r', strtotime($item->published));
 				
-				$result .= '<item><title>' . $title . '</title><link>' . $url . '</link><guid isPermaLink="true">' . $url . '</guid><description><![CDATA[' . $content . ']]></description><pubDate>' . $date . '</pubDate></item>';
+				$result .= '<item><title><![CDATA[' . $title . ']]></title><link><![CDATA[' . $url . ']]></link><guid isPermaLink="true"><![CDATA[' . $url . ']]></guid><description><![CDATA[' . $content . ']]></description><pubDate>' . $date . '</pubDate></item>';
 			}
 		}
 		

@@ -21,10 +21,11 @@ proposer à vos lecteurs sous la forme d'un flux RSS 2.0.
 => INSTALLATION
 
     L'installation s'effectue en trois petites étapes:
-        1) Modifiez le fichier « config.php ». Toutes les lignes ont été commentées
-        2) Uploadez le contenu du dossier « Rocket-Cat » sur votre serveur
-        3) Appliquez les bons droits au fichier « ca.che »: PHP doit pouvoir écrire
+        1) Uploadez le contenu du dossier « Rocket-Cat » sur votre serveur
+        2) Appliquez les bons droits au répertoire: PHP doit pouvoir écrire
            à l'intérieur
+        3) Rendez vous à l'endroit où le script a été uploadé et remplissez
+           le formulaire
 
     Et voilà, c'est (déjà) terminé!
 
