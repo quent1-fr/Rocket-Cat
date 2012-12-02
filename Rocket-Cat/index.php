@@ -29,7 +29,10 @@
 				elseif(isset($item->object->attachments[0]) && $item->object->attachments[0]->objectType == 'photo'){
 					if(isset($item->object->attachments[0]->displayName)) $title = $item->object->attachments[0]->displayName;
 					else $title = 'Image';
-					$url = $item->object->attachments[0]->fullImage->url;
+					$image_width = $item->object->attachments[0]->fullImage->width;
+					$url_miniature = $item->object->attachments[0]->fullImage->url;
+					$position_slash = strrpos($url_miniature, '/');
+					$url = substr($url_miniature, 0, $position_slash) . '/w' . $image_width . substr($url_miniature, $position_slash);
 				}
 				elseif(isset($item->object->attachments[0]) && $item->object->attachments[0]->objectType == 'video'){
 					if(isset($item->object->attachments[0]->displayName)) $title = $item->object->attachments[0]->displayName;
